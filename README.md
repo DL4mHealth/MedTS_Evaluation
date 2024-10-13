@@ -138,6 +138,26 @@ and the results can be found in  `results/classification/`.
 You can modify the parameters by changing the command line. 
 The meaning and explanation of each parameter in command line can be found in `run.py` file.
 
+## Partial Results
+Results of **ADFTD** dataset (3-classes classification) run with Medformer under different setups.
+
+|             | Accuracy | F1 Score |
+|:------------|:--------:|---------:|
+| Sub-Disc    |  98.78%  |   98.72% |
+| Sub-Dep     |  97.66%  |   97.56% |
+| R-Sub-Dep   |  97.14%  |   97.12% |
+| Sub-Indep   |  52.37%  |   48.72% |
+| R-Sub-Indep |  30.67%  |   29.82% |
+
+It is interesting that R-Sub-Dep achieves almost the same performance as Sub-Dep.
+R-Sub-Dep setup implies that there is no disease-related label information in the whole dataset.
+How could it be possible that the R-Sub-Dep setup has a similar performance to the Sub-Dep setup?
+In contrast, Sub-Indep to R-Sub-Indep have a significant performance drop.
+F1 score under R-Sub-Indep setup is close to the random guess level 33%, 
+which is reasonable since there is no disease-related features now.
+_This result indicates that it is possible for the model to achieve deceptively high performance under the subject-dependent setup, 
+while learning nothing about the disease-related features and using subject-specific features as a shortcut for disease label classification._
+
 
 ## Acknowledgement
 
